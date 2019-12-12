@@ -9,6 +9,9 @@ spec:
     name: alpine
     command:
     args:
+    volumeMounts:
+    - mountPath: /opt
+      name: data-volume
     
     
   volumes:
@@ -16,4 +19,11 @@ spec:
     hostpath:
       path: /data
       type: Directory
+      
+  - name: data-volume
+    awsElasticBlockStore:
+      volumeID: <volume-id>
+      fsType: ext4
+      
+      
     
