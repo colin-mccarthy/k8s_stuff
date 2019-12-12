@@ -11,5 +11,7 @@ spec:
       path: /tmp/data
       
       
-# kubectl create -f pv-definition.yaml      
+# kubectl create -f pv-definition.yaml   
+
+# kubectl get persistentvolume
 
