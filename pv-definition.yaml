@@ -11,5 +11,5 @@ spec:
       path: /tmp/data
       
       
-# kubectl create -f pv-definition.yml      
+# kubectl create -f pv-definition.yaml      
 
