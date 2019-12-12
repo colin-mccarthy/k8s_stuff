@@ -7,8 +7,13 @@ spec:
       - ReadWriteOnce
   capacity: 
       storage: 1Gi
-  hostPath:
-      path: /tmp/data
+      
+#  hostPath:
+#      path: /tmp/data
+      
+  awsElasticBlockStore:
+    volumeID: <volume-id>
+    fsType: ext4
       
       
 # kubectl create -f pv-definition.yaml   
