@@ -1,0 +1,33 @@
+
+# Get number of running pods
+
+kubectl get pods
+
+
+# Create a new pod with the NGINX image
+
+kubectl run nginx --image=nginx --generator=run-pod/v1
+
+
+# What image was used to create this container
+
+kubectl describe pod newpod-<id>
+
+# Which nodes are these pods placed on?
+# You must look at all the pods in detail to figure this out
+
+kubectl describe pod newpod-<id>
+
+# How many containers are part of the pod 'webapp'?
+
+kubectl describe pod webapp
+
+# Delete the 'webapp' Pod.
+
+kubectl delete pod webapp
+
+# Create a new pod with the name 'redis' and with the image 'redis123'
+# Use a pod-definition YAML file. And yes the image name is wrong!
+
+# Now fix the image on the pod to 'redis'.
+# Update the pod-definition file and use 'kubectl apply' command or use 'kubectl edit pod redis' command.
