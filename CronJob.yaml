@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: backup-sa
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kube-system-backup-sa-privileged-psp-role
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: privileged-psp
+subjects:
+- kind: ServiceAccount
+  name: backup-sa
+  namespace: kube-system
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: backup
+  namespace: kube-system
+spec:
+  schedule: "*/3 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccount: backup-sa
+          initContainers:
+            - name: id-generation
+              image: busybox:1.31
+              command: ["/bin/sh"]
+              args: ["-c", "echo $(date +%d-%m-%Y-%k-%M) > /backup/backup_id"]
+              volumeMounts:
+              - mountPath: /backup
+                name: backupwd
+          containers:
+          - name: cat
+            image: busybox:1.31
+            command: ["/bin/sh"]
+            args: ["-c", "cat /backup/backup_id"]
+            volumeMounts:
+              - mountPath: /backup
+                name: backupwd
+          restartPolicy: OnFailure
+          nodeSelector:
+            node-role.kubernetes.io/master: ""
+          tolerations:
+          - effect: NoSchedule
+            operator: Exists
+          hostNetwork: true
+          volumes:
+          - name: backupwd
+            emptyDir:
+              medium: Memory
