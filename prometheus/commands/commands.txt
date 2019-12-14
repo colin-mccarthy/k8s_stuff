@@ -11,6 +11,11 @@ kubectl get namespaces
 kubectl apply -f clusterRole.yaml
 
 
+# config map
+
+kubectl apply -f config-map.yaml
+
+
 
 
 
