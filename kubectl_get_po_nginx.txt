@@ -1,0 +1,85 @@
+pi@node1:~ $ 
+pi@node1:~ $ 
+pi@node1:~ $ 
+pi@node1:~ $ kubectl get po nginx -o yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2019-12-14T18:52:34Z"
+  labels:
+    run: nginx
+  name: nginx
+  namespace: default
+  resourceVersion: "5017017"
+  selfLink: /api/v1/namespaces/default/pods/nginx
+  uid: e3bfda90-1ea2-11ea-a38c-b827ebbc0a32
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: nginx
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-jhc45
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: node2
+  priority: 0
+  restartPolicy: Never
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-jhc45
+    secret:
+      defaultMode: 420
+      secretName: default-token-jhc45
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2019-12-14T18:52:34Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2019-12-14T18:53:21Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2019-12-14T18:53:21Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2019-12-14T18:52:34Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://5441c8b6b81bfed4ce99ebfe612804f6f555e672f83f00fee15b33f61e45779f
+    image: nginx:latest
+    imageID: docker-pullable://nginx@sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566
+    lastState: {}
+    name: nginx
+    ready: true
+    restartCount: 0
+    state:
+      running:
+        startedAt: "2019-12-14T18:53:20Z"
+  hostIP: 192.168.161.102
+  phase: Running
+  podIP: 10.36.0.1
+  qosClass: BestEffort
+  startTime: "2019-12-14T18:52:34Z"
