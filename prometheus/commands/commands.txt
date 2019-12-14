@@ -1,6 +1,18 @@
+# cretae the namespace for monitoring
+
 kubectl apply -f namespace.yaml
 
 kubectl get namespaces
+
+
+# Next we'll set up the cluster role. We need this so that Prometheus has the correct 
+# permissions to the Kubernetes API
+
+kubectl apply -f clusterRole.yaml
+
+
+
+
 
 
 
