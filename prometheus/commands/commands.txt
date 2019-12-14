@@ -1,4 +1,4 @@
-# cretae the namespace for monitoring
+# Create the namespace for monitoring
 
 kubectl apply -f namespace.yaml
 
