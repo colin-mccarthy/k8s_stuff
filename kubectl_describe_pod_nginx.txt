@@ -1,0 +1,51 @@
+pi@node1:~ $ 
+pi@node1:~ $ 
+pi@node1:~ $ 
+pi@node1:~ $ kubectl describe pod nginx
+Name:               nginx
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               node2/192.168.161.102
+Start Time:         Sat, 14 Dec 2019 18:52:34 +0000
+Labels:             run=nginx
+Annotations:        <none>
+Status:             Running
+IP:                 10.36.0.1
+Containers:
+  nginx:
+    Container ID:   docker://5441c8b6b81bfed4ce99ebfe612804f6f555e672f83f00fee15b33f61e45779f
+    Image:          nginx
+    Image ID:       docker-pullable://nginx@sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Sat, 14 Dec 2019 18:53:20 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-jhc45 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-jhc45:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-jhc45
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  29m   default-scheduler  Successfully assigned default/nginx to node2
+  Normal  Pulling    29m   kubelet, node2     pulling image "nginx"
+  Normal  Pulled     28m   kubelet, node2     Successfully pulled image "nginx"
+  Normal  Created    28m   kubelet, node2     Created container
+  Normal  Started    28m   kubelet, node2     Started container
