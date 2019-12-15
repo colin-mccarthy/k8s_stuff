@@ -34,7 +34,7 @@ kubectl delete deployment prometheus-deployment -n monitoring
 
 
 
-
+# Once the pod and service are available, you can access Prometheus’s Expression Browser by going to 
 
 http://<KUBERNETES_MASTER_IP>:30000
 
