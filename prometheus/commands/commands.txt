@@ -13,7 +13,11 @@ kubectl apply -f clusterRole.yaml
 
 # config map
 
-kubectl apply -f config-map.yaml
+kubectl apply -f prometheus-configmap.yaml 
+
+# deployment
+
+kubectl apply -f prometheus-deployment.yaml
 
 
 
