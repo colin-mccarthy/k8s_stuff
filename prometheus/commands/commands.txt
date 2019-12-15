@@ -28,6 +28,10 @@ kubectl get services -n monitoring
 
 kubectl get deployments -n monitoring
 
+# delete deployment
+
+kubectl delete deployment prometheus-deployment -n monitoring
+
 
 
 
