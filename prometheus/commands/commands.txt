@@ -36,6 +36,12 @@ kubectl delete deployment prometheus-deployment -n monitoring
 
 
 
+http://<KUBERNETES_MASTER_IP>:30000
+
+
+
+
+
 
 
 
