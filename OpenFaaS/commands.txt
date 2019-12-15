@@ -1,3 +1,9 @@
 kubectl run grafana --image=stefanprodan/faas-grafana:4.6.3 --port=3000 -n openfaas
 
 # crashed doesn't support ARM
+
+
+tried -->  proxx/grafana-armv7
+
+
+
