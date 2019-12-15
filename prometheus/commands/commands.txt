@@ -24,6 +24,12 @@ kubectl apply -f prometheus-deployment.yaml
 kubectl get pods -n monitoring
 kubectl get services -n monitoring
 
+# view deployments
+
+kubectl get deployments -n monitoring
+
+
+
 
 
 
