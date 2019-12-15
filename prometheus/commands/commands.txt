@@ -19,6 +19,11 @@ kubectl apply -f prometheus-configmap.yaml
 
 kubectl apply -f prometheus-deployment.yaml
 
+# Let’s verify that the pod and service were created.
+
+kubectl get pods -n monitoring
+kubectl get services -n monitoring
+
 
 
 
