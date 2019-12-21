@@ -12,3 +12,6 @@ spec:
     imagePullPolicy: IfNotPresent
     name: alpine-snow
   restartPolicy: Always
+  
+  
+  # kubectl create -f alpine-snow-pod.yml
