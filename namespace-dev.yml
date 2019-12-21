@@ -6,4 +6,4 @@ metadata:
     
 # kubectl create -f namespace-dev.yml    
 
-# kubctl create namespace dev
+# kubectl create namespace dev
