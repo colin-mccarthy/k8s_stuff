@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine-snow
+  namespace: default
+spec:
+  containers:
+  - image: cmccarth/alpine-snow
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+    name: alpine-snow
+  restartPolicy: Always
