@@ -1,0 +1,9 @@
+For example, creating a pod with resource requests of 0.5 vCPU and 128Mi, 
+a label of foo: bar and linked to the service account named test-sa, 
+can be done by using the following command:
+
+
+kubectl run pod --image=nginx --restart=Never  \  
+--requests=cpu=0.5,memory=128Mi \
+--labels=foo=bar \
+--serviceaccount=test-sa
