@@ -1,0 +1,30 @@
+kubectl create namespace one
+kubectl create namespace two
+kubectl create namespace three
+kubectl create namespace four
+kubectl create namespace five
+kubectl create namespcae six
+kubectl create namespace seven
+kubectl create namespace eight
+kubectl create namespace nine
+kubectl create namespace ten
+kubectl create namespace eleven
+kubectl create namespace twelve
+kubectl create namespace thirteen
+
+kubectl create namespace foo
+kubectl create namespace foo
+kubectl cretae namespace foo
+
+kubectl run nginx --image=nginx --restart=Never -n mynamespace
+
+kubectl run nginx --image=nginx --restart=Never -n foo
+kubectl run nginx --image=nginx --restart=Never -n foo
+kubectl run nginx --image=nginx --restart=Never -n foo
+
+kubectl run nginx --image=nginx --restart=Never --dry-run -o yaml > pod.yaml
+
+kubectl run nginx --image=nginx --restart=Never --dry-run -o yaml > pod.yaml
+kubectl run nginx --image=nginx --restart=Never --dry-run -o yaml > pod.yaml
+kubectl run nginx --image=nginx --restart=Never --dry-run -o yaml > pod.yaml
+
