@@ -1,0 +1,22 @@
+To solve your issue:
+
+Provide a PersistentVolume fulfilling the constraints of the claim (a size >= 100Mi)
+Remove the storageClass-line from the PersistentVolumeClaim
+Remove the StorageClass from your cluster
+How do these pieces play together?
+
+At creation of the deployment state-description it is usually known which kind (amount, speed, ...) of storage that 
+application will need. To make a deployment versatile you'd like to avoid a hard dependency on storage. 
+Kubernetes volume-abstraction allows you to provide and consume storage in a standardized way.
+
+The PersistentVolumeClaim is used to provide a storage-constraint alongside the deployment of an application.
+
+The PersistentVolume offers cluster-wide volume-instances ready to be consumed ("bound"). 
+One PersistentVolume will be bound to one claim. But since multiple instances of that claim may be run on multiple nodes, 
+that volume may be accessed by multiple nodes.
+
+A PersistentVolume without StorageClass is considered to be static.
+
+"Dynamic Volume Provisioning" alongside with a StorageClass allows the cluster to provision PersistentVolumes on demand. 
+In order to make that work, the given storage provider must support provisioning - this allows the cluster to request 
+the provisioning of a "new" PersistentVolume when an unsatisfied PersistentVolumeClaim pops up.
