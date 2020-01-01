@@ -1,0 +1,4 @@
+kubectl delete pvc pihole-config
+kubectl delete po pihole-133u4u4u3i
+kubectl delete deployment pihole
+
