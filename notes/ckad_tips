@@ -1,0 +1,8 @@
+CKAD tip #1 
+
+alias k=kubectl
+complete -F __start_kubectl k
+
+
+
+tip# 0.5 - echo "source <(kubectl completion bash)" >> ~/.bashrc :)
